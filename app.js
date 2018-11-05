@@ -5,13 +5,13 @@ const path = require('path')
 const request = require('request')
 
 // Look for Webex Versions that are at least v33
-const regex = new RegExp(".*(WBXclient\-33.*)\.txt.*")
+const regex = new RegExp(".*(WBXclient\-33.*)/.*")
 
 // Get the Webex site name from .env
 const mySite = process.env.WEBEX_SITE
 
 // Define the Webex Site data URL
-const webexUrl = `https://${mySite}.webex.com/version/wbxversionlist.do?siteurl=${mySite}`
+const webexUrl = `https://${mySite}.webex.com/mw3300/mywebex/default.do?siteurl=${mySite}&service=10`
 
 // Send request to get Webex Site data
 request(webexUrl, (error, response, body) => {
